@@ -164,13 +164,13 @@ ul { list-style: none; }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-secondary);
-  border: 2px solid rgba(44, 62, 80, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 .btn-outline:hover {
-  background: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background: rgba(44, 62, 80, 0.9);
+  border-color: rgba(44, 62, 80, 0.9);
   color: #fff;
 }
 
@@ -195,14 +195,14 @@ ul { list-style: none; }
   z-index: 1000;
   padding: 1rem 0;
   transition: var(--transition);
+  background: rgba(255, 248, 240, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(44, 62, 80, 0.08);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 248, 240, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   padding: 0.6rem 0;
-  box-shadow: 0 2px 20px rgba(44, 62, 80, 0.08);
 }
 
 .nav-container {
@@ -319,16 +319,13 @@ ul { list-style: none; }
   text-align: center;
   padding: 0 1.5rem;
   overflow: hidden;
+  background: url('images/cafe_provided/cafe-interior-warm.jpg') center/cover no-repeat;
 }
 
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 40%, rgba(232, 145, 58, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 20%, rgba(244, 208, 63, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(39, 174, 96, 0.06) 0%, transparent 50%),
-    linear-gradient(180deg, #FFF8F0 0%, #FAF0E4 40%, #F5E6D0 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(44, 62, 80, 0.25) 50%, rgba(232, 145, 58, 0.15) 100%);
   z-index: 1;
 }
 
@@ -362,9 +359,10 @@ ul { list-style: none; }
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 4px;
-  color: var(--color-primary);
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 1.25rem;
   text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero-title {
@@ -374,7 +372,8 @@ ul { list-style: none; }
   line-height: 1;
   letter-spacing: -1px;
   margin-bottom: 1.5rem;
-  color: var(--color-secondary);
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
 }
 
 .text-gradient {
@@ -386,10 +385,11 @@ ul { list-style: none; }
 
 .hero-desc {
   font-size: 1.15rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 500px;
   margin: 0 auto 2rem;
   line-height: 1.7;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
 
 .hero-actions {
@@ -411,12 +411,11 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--color-border);
+  background: #fff;
+  border: 1px solid rgba(232, 145, 58, 0.15);
   padding: 0.75rem 1.25rem;
   border-radius: 60px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .badge-icon { font-size: 1.4rem; }
@@ -424,12 +423,12 @@ ul { list-style: none; }
 .badge strong {
   display: block;
   font-size: 1.1rem;
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 .badge span {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--color-secondary);
 }
 
 .hero-scroll-indicator {
@@ -442,22 +441,25 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-text-muted);
-  font-size: 0.75rem;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
 .scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--color-primary), transparent);
+  width: 3px;
+  height: 55px;
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-primary), rgba(232, 145, 58, 0.4));
+  border-radius: 2px;
   animation: scrollPulse 2s infinite;
 }
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 1; height: 40px; }
-  50% { opacity: 0.3; height: 20px; }
+  0%, 100% { opacity: 1; height: 55px; transform: scaleY(1); }
+  50% { opacity: 0.5; height: 30px; transform: scaleY(0.8); }
 }
 
 /* ---------- About ---------- */
