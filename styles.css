@@ -637,10 +637,12 @@ ul { list-style: none; }
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
-  padding: 1.75rem;
+  padding: 1.25rem 1.75rem;
   position: relative;
   transition: var(--transition);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-card::before {
@@ -666,7 +668,7 @@ ul { list-style: none; }
 
 .menu-card-badge {
   position: absolute;
-  top: 1rem;
+  top: 0.75rem;
   right: 1rem;
   font-size: 0.7rem;
   font-weight: 700;
@@ -682,32 +684,100 @@ ul { list-style: none; }
   background: var(--color-primary);
 }
 
+.menu-card-price-top {
+  position: absolute;
+  top: 0.65rem;
+  left: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
 .menu-card-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  display: none;
+}
+
+.menu-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--border-radius-sm);
+  margin: 0.75rem 0 1.25rem 0;
+}
+
+/* Zoom in on bottom half for images with content in lower portion */
+.menu-card-image[src*="blueberry"] {
+  object-position: bottom;
+}
+
+/* Zoom in on top half for breakfast tacos */
+.menu-card-image[src*="breakfast-tacos"] {
+  object-position: top;
+}
+
+/* Zoom out on width for eggs benedict to show full dish */
+.menu-card-image[src*="eggs-benedict"] {
+  object-position: center;
+}
+
+/* Zoom out on width for overnight oats to show full bowl */
+.menu-card-image[src*="overnight-oats"] {
+  object-position: center;
+}
+
+/* Focus on bottom 2/3 for chicken and waffles */
+.menu-card-image[src*="chicken-and-waffles"] {
+  object-position: center bottom;
+}
+
+/* Show full croissant centered for balanced view */
+.menu-card-image[src*="croissants"] {
+  object-position: center;
+}
+
+/* Focus on bottom half for cinnamon rolls */
+.menu-card-image[src*="cinnamon-rolls"] {
+  object-position: bottom;
+}
+
+/* Focus on right side for banana bread to show the slice */
+.menu-card-image[src*="banana-bread"] {
+  object-position: right;
+}
+
+/* Keep oranges + juice centered in view */
+.menu-card-image[src*="orange-juice"] {
+  object-position: center 35%;
 }
 
 .menu-card h3 {
   font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
   color: var(--color-secondary);
+  text-align: center;
+  padding-top: 1.5rem;
 }
 
 .menu-card p {
   color: var(--color-text-muted);
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 1.25rem;
+  margin: 0 0 1rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .menu-card-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
+  padding-top: 0;
+  border-top: none;
+  margin-top: auto;
 }
 
 .menu-price {
