@@ -164,13 +164,13 @@ ul { list-style: none; }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-secondary);
-  border: 2px solid rgba(44, 62, 80, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.6);
 }
 
 .btn-outline:hover {
-  background: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background: rgba(44, 62, 80, 0.9);
+  border-color: rgba(44, 62, 80, 0.9);
   color: #fff;
 }
 
@@ -195,14 +195,14 @@ ul { list-style: none; }
   z-index: 1000;
   padding: 1rem 0;
   transition: var(--transition);
+  background: rgba(255, 248, 240, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(44, 62, 80, 0.08);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 248, 240, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   padding: 0.6rem 0;
-  box-shadow: 0 2px 20px rgba(44, 62, 80, 0.08);
 }
 
 .nav-container {
@@ -319,16 +319,13 @@ ul { list-style: none; }
   text-align: center;
   padding: 0 1.5rem;
   overflow: hidden;
+  background: url('images/cafe_provided/cafe-interior-warm.jpg') center/cover no-repeat;
 }
 
 .hero-bg-overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 30% 40%, rgba(232, 145, 58, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 20%, rgba(244, 208, 63, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(39, 174, 96, 0.06) 0%, transparent 50%),
-    linear-gradient(180deg, #FFF8F0 0%, #FAF0E4 40%, #F5E6D0 100%);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(44, 62, 80, 0.25) 50%, rgba(232, 145, 58, 0.15) 100%);
   z-index: 1;
 }
 
@@ -362,9 +359,10 @@ ul { list-style: none; }
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 4px;
-  color: var(--color-primary);
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 1.25rem;
   text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .hero-title {
@@ -374,7 +372,8 @@ ul { list-style: none; }
   line-height: 1;
   letter-spacing: -1px;
   margin-bottom: 1.5rem;
-  color: var(--color-secondary);
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4);
 }
 
 .text-gradient {
@@ -386,10 +385,11 @@ ul { list-style: none; }
 
 .hero-desc {
   font-size: 1.15rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.9);
   max-width: 500px;
   margin: 0 auto 2rem;
   line-height: 1.7;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
 
 .hero-actions {
@@ -411,12 +411,11 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--color-border);
+  background: #fff;
+  border: 1px solid rgba(232, 145, 58, 0.15);
   padding: 0.75rem 1.25rem;
   border-radius: 60px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .badge-icon { font-size: 1.4rem; }
@@ -424,12 +423,12 @@ ul { list-style: none; }
 .badge strong {
   display: block;
   font-size: 1.1rem;
-  color: var(--color-secondary);
+  color: var(--color-primary);
 }
 
 .badge span {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--color-secondary);
 }
 
 .hero-scroll-indicator {
@@ -442,22 +441,25 @@ ul { list-style: none; }
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-text-muted);
-  font-size: 0.75rem;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
 }
 
 .scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--color-primary), transparent);
+  width: 3px;
+  height: 55px;
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-primary), rgba(232, 145, 58, 0.4));
+  border-radius: 2px;
   animation: scrollPulse 2s infinite;
 }
 
 @keyframes scrollPulse {
-  0%, 100% { opacity: 1; height: 40px; }
-  50% { opacity: 0.3; height: 20px; }
+  0%, 100% { opacity: 1; height: 55px; transform: scaleY(1); }
+  50% { opacity: 0.5; height: 30px; transform: scaleY(0.8); }
 }
 
 /* ---------- About ---------- */
@@ -476,30 +478,15 @@ ul { list-style: none; }
   width: 100%;
   aspect-ratio: 4 / 5;
   border-radius: var(--border-radius);
-  background: linear-gradient(135deg, #FAF0E4 0%, #F5E0C8 50%, #EECBA0 100%);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
   overflow: hidden;
   border: 1px solid var(--color-border);
 }
 
-.placeholder-icon {
-  font-size: 5rem;
-  animation: gentleBob 3s ease-in-out infinite;
-}
-
-@keyframes gentleBob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.about-image-placeholder p {
-  color: var(--color-text-muted);
-  font-size: 0.85rem;
-  letter-spacing: 1px;
+.about-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about-accent-box {
@@ -542,13 +529,27 @@ ul { list-style: none; }
 
 .about-feature {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem 1.0rem;
   background: rgba(232, 145, 58, 0.04);
   border-radius: var(--border-radius-sm);
   border: 1px solid var(--color-border);
   transition: var(--transition);
+}
+
+.feature-text {
+  flex: 1;
+  min-width: 0;
+  padding-left: 0.75rem;
+}
+
+.feature-image {
+  width: 125px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  flex-shrink: 0;
 }
 
 .about-feature:hover {
@@ -560,6 +561,20 @@ ul { list-style: none; }
   font-size: 1.8rem;
   min-width: 40px;
   text-align: center;
+}
+
+.feature-text strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--color-secondary);
+  font-size: 1rem;
+}
+
+.feature-text p {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
 }
 
 .about-feature strong {
@@ -622,10 +637,12 @@ ul { list-style: none; }
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius);
-  padding: 1.75rem;
+  padding: 1.25rem 1.75rem;
   position: relative;
   transition: var(--transition);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .menu-card::before {
@@ -651,7 +668,7 @@ ul { list-style: none; }
 
 .menu-card-badge {
   position: absolute;
-  top: 1rem;
+  top: 0.75rem;
   right: 1rem;
   font-size: 0.7rem;
   font-weight: 700;
@@ -667,32 +684,100 @@ ul { list-style: none; }
   background: var(--color-primary);
 }
 
+.menu-card-price-top {
+  position: absolute;
+  top: 0.65rem;
+  left: 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
 .menu-card-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  display: none;
+}
+
+.menu-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--border-radius-sm);
+  margin: 0.75rem 0 1.25rem 0;
+}
+
+/* Zoom in on bottom half for images with content in lower portion */
+.menu-card-image[src*="blueberry"] {
+  object-position: bottom;
+}
+
+/* Zoom in on top half for breakfast tacos */
+.menu-card-image[src*="breakfast-tacos"] {
+  object-position: top;
+}
+
+/* Zoom out on width for eggs benedict to show full dish */
+.menu-card-image[src*="eggs-benedict"] {
+  object-position: center;
+}
+
+/* Zoom out on width for overnight oats to show full bowl */
+.menu-card-image[src*="overnight-oats"] {
+  object-position: center;
+}
+
+/* Focus on bottom 2/3 for chicken and waffles */
+.menu-card-image[src*="chicken-and-waffles"] {
+  object-position: center bottom;
+}
+
+/* Show full croissant centered for balanced view */
+.menu-card-image[src*="croissants"] {
+  object-position: center;
+}
+
+/* Focus on bottom half for cinnamon rolls */
+.menu-card-image[src*="cinnamon-rolls"] {
+  object-position: bottom;
+}
+
+/* Focus on right side for banana bread to show the slice */
+.menu-card-image[src*="banana-bread"] {
+  object-position: right;
+}
+
+/* Keep oranges + juice centered in view */
+.menu-card-image[src*="orange-juice"] {
+  object-position: center 35%;
 }
 
 .menu-card h3 {
   font-family: var(--font-heading);
   font-size: 1.4rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
   color: var(--color-secondary);
+  text-align: center;
+  padding-top: 1.5rem;
 }
 
 .menu-card p {
   color: var(--color-text-muted);
   font-size: 0.9rem;
   line-height: 1.6;
-  margin-bottom: 1.25rem;
+  margin: 0 0 1rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .menu-card-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding-top: 1rem;
-  border-top: 1px solid var(--color-border);
+  padding-top: 0;
+  border-top: none;
+  margin-top: auto;
 }
 
 .menu-price {
@@ -729,7 +814,7 @@ ul { list-style: none; }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 250px;
+  grid-auto-rows: 220px;
   gap: 1rem;
 }
 
@@ -753,6 +838,30 @@ ul { list-style: none; }
   justify-content: center;
   gap: 0.75rem;
   transition: var(--transition-slow);
+}
+
+.gallery-placeholder--image {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
 }
 
 .gallery-placeholder span { font-size: 3rem; }
