@@ -145,30 +145,67 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ==================== NEWSLETTER FORM ====================
+  // ==================== NEWSLETTER FORM (AJAX via Formspree) ====================
   const newsletterForm = document.getElementById('newsletterForm');
   if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
+    const statusEl = document.getElementById('newsletterStatus');
+    newsletterForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const input = newsletterForm.querySelector('input[type="email"]');
       const btn = newsletterForm.querySelector('button');
       const email = input.value.trim();
 
-      if (email) {
-        // Formspree placeholder — swap the action URL to connect:
-        // newsletterForm.action = 'https://formspree.io/f/YOUR_FORM_ID';
-        // newsletterForm.submit();
+      if (!email) {
+        if (statusEl) statusEl.textContent = 'Please enter a valid email address.';
+        return;
+      }
 
-        btn.textContent = 'Subscribed!';
-        btn.style.background = 'linear-gradient(135deg, #6aab73, #3d8b4f)';
-        input.value = '';
-        input.placeholder = 'Thanks! Check your inbox.';
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      if (statusEl) statusEl.textContent = '';
 
-        setTimeout(() => {
+      try {
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('source', 'website_newsletter');
+
+        const resp = await fetch(newsletterForm.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: formData,
+        });
+
+        if (resp.ok) {
+          // Show confirmation text inside the input and apply green styling to the button
+          input.value = 'Thanks! Check your inbox.';
+          input.readOnly = true;
+          btn.textContent = 'Subscribed!';
+          btn.style.background = 'linear-gradient(135deg, #6aab73, #3d8b4f)';
+          btn.style.color = '#fff';
+          btn.disabled = true;
+
+          // Revert to original state after a short delay
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.textContent = 'Subscribe';
+            btn.style.background = '';
+            btn.style.color = '';
+            input.readOnly = false;
+            input.value = '';
+            input.placeholder = 'Your email address';
+          }, 4000);
+        } else {
+          const data = await resp.json().catch(() => null);
+          let msg = 'There was a problem subscribing. Please try again later.';
+          if (data && data.error) msg = data.error;
+          if (statusEl) statusEl.textContent = msg;
+          btn.disabled = false;
           btn.textContent = 'Subscribe';
-          btn.style.background = '';
-          input.placeholder = 'Your email address';
-        }, 3000);
+        }
+      } catch (err) {
+        if (statusEl) statusEl.textContent = 'Network error. Please try again.';
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
       }
     });
   }

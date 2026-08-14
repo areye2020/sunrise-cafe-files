@@ -478,10 +478,11 @@
       <div class="newsletter-inner animate-on-scroll">
         <h2>Stay in the Loop</h2>
         <p>Weekly specials, seasonal menu drops, and bakery pre-orders &mdash; straight to your inbox.</p>
-        <form class="newsletter-form" id="newsletterForm">
-          <input type="email" placeholder="Your email address" required aria-label="Email address" />
+        <form action="https://formspree.io/f/xreylyqn" method="POST" class="newsletter-form" id="newsletterForm">
+          <input name="email" type="email" placeholder="Your email address" required aria-label="Email address" />
           <button type="submit" class="btn btn-primary">Subscribe</button>
         </form>
+        <div id="newsletterStatus" class="newsletter-status" role="status" aria-live="polite" aria-atomic="true"></div>
         <div class="newsletter-links">
           <a href="#" class="btn btn-outline" target="_blank" rel="noopener">Order on Square Online</a>
         </div>
