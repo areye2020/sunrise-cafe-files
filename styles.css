@@ -18,7 +18,7 @@
   --color-bg-card-hover: #FFF2E6;
   --color-surface: #FAF5EF;
   --color-text: #2C3E50;
-  --color-text-muted: #7F8C8D;
+  --color-text-muted: #596566;
   --color-border: rgba(44, 62, 80, 0.1);
 
   /* Typography */
@@ -152,7 +152,7 @@ ul { list-style: none; }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-  color: #fff;
+  color: dark-color-secondary;
   box-shadow: 0 4px 20px rgba(232, 145, 58, 0.3);
 }
 
