@@ -150,6 +150,10 @@ ul { list-style: none; }
   gap: 0.5rem;
 }
 
+.white-text {
+  color: #fff;
+}
+
 .btn-primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   color: dark-color-secondary;
